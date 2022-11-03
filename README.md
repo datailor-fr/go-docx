@@ -195,5 +195,15 @@ All the steps taken in 5. require cumbersome shifting of the offsets. This is th
 where the most debugging happened (gosh, so many offsets). The given explanation is definitely enough
 to grasp the concept, leaving out the messy bits.
 
+#### How to insert XML inside the document?
+
+This fork was created to add a method to insert XML inside the document. Use the [core XML package](https://pkg.go.dev/encoding/xml) for XML generation.
+
+Once you've *marshalled* your XML and got an array of bytes, just call `ReplaceXml` method like you would have called the `Replace` one:
+
+```go
+err = replacer.ReplaceXml(placeholder, content)
+```
+
 ### ➤ License
 This software is licensed under the [MIT license](https://github.com/lukasjarosch/go-docx/blob/develop/LICENSE).
